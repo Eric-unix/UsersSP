@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        userAdapter = UserAdapter(mutableListOf())
+        userAdapter = UserAdapter(getUsers())
         linearLayoutManager = LinearLayoutManager(this)
 
         binding.recycleview.apply {
@@ -25,5 +25,17 @@ class MainActivity : AppCompatActivity() {
             adapter = userAdapter
         }
 
+    }
+
+    private fun getUsers():MutableList<User>{
+        val users = mutableListOf<User>()
+
+        val alain = User (1,"alain", "Nicolas", "")
+        val samanta = User (2,"Samanta", "meza", "")
+
+        users.add(alain)
+        users.add(samanta)
+
+        return users
     }
 }
