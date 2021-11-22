@@ -22,8 +22,10 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
         val preference = getPreferences(Context.MODE_PRIVATE)
 
-        val isFirsTime = preference.getBoolean(getString(R.string.sp_first_time), false)
+        val isFirsTime = preference.getBoolean(getString(R.string.sp_first_time), true)
         Log.i("SP","${getString(R.string.sp_first_time)}=$isFirsTime")
+
+        preference.edit().putBoolean(getString(R.string.sp_first_time),false).commit()
 
         userAdapter = UserAdapter(getUsers(), this)
         linearLayoutManager = LinearLayoutManager(this)
